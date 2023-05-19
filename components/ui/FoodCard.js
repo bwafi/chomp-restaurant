@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProductContext } from '@/context/GlobalState';
+import { formatRp } from '@/context/FormatRp';
 
 export default function FoodCard({ type }) {
   const { products, addToCart } = ProductContext();
@@ -32,7 +33,7 @@ export default function FoodCard({ type }) {
             <div>
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-bold">{name}</h2>
-                <p className="text-primary">IDR {price}</p>
+                <p className="text-primary">{formatRp(price)}</p>
               </div>
               <p className="text-paragraf leading-normal text-[15px]">{description}</p>
               <div className="flex gap-5 mt-2 justify-end w-full">

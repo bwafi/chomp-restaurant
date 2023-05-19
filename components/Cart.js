@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ProductContext } from '@/context/GlobalState';
 import { BsPlus } from 'react-icons/bs';
 import { BsDash } from 'react-icons/bs';
+import { formatRp } from '@/context/FormatRp';
 
 export default function Cart({ className, showCart, setShowCart }) {
   const { cart, removeFromCart } = ProductContext();
@@ -55,7 +56,7 @@ const CardCart = ({ item, removeFromCart }) => {
         <div className="flex w-full justify-between items-center">
           <div>
             <h3 className="font-bold text-[15px] text-black/80 ">{item.name}</h3>
-            <p className="text-black/80 text-[15px]">IDR {item.price}</p>
+            <p className="text-black/80 text-[15px]">{formatRp(item.price)}</p>
             <button className="text-orange-400" onClick={() => removeFromCart(item.id)}>
               Remove
             </button>
