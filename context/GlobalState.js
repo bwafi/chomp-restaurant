@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 import products from '../utils/products.json';
 
 const initialState = {
@@ -8,8 +8,13 @@ const initialState = {
 };
 
 const ProductReducer = (state, action) => {
-  console.log(state.product);
   switch (action.type) {
+    case 'SET_CART':
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
     case 'ADD_TO_CART':
       const { burgers, sides, drinks } = state.products;
       const itemAdd =
@@ -29,6 +34,7 @@ const ProductReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
+
     case 'INCREASE_QUANTITY':
       return {
         ...state,
@@ -36,6 +42,7 @@ const ProductReducer = (state, action) => {
           item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
         ),
       };
+
     case 'DECREASE_QUANTITY':
       return {
         ...state,
@@ -86,19 +93,25 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  console.log(state.cart);
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      dispatch({ type: 'SET_CART', payload: JSON.parse(savedCart) });
+    }
+  }, []);
 
-  return (
-    <GlobalContext.Provider
-      value={{
-        products: state.products,
-        cart: state.cart,
-        addToCart,
-        removeFromCart,
-        increaseQuantity,
-        decreaseQuantity,
-      }}>
-      {children}
-    </GlobalContext.Provider>
-  );
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
+
+  const value = {
+    products: state.products,
+    cart: state.cart,
+    addToCart,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+  };
+
+  return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
 };

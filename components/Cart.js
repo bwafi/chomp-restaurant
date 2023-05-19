@@ -4,9 +4,8 @@ import { IoClose } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { ProductContext } from '@/context/GlobalState';
-import { BsPlus } from 'react-icons/bs';
-import { BsDash } from 'react-icons/bs';
 import { formatRp } from '@/context/formatRp';
+import CountCard from './ui/CountCard';
 
 export default function Cart({ className, showCart, setShowCart }) {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = ProductContext();
@@ -24,14 +23,14 @@ export default function Cart({ className, showCart, setShowCart }) {
             initial={{ x: 500, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 500, opacity: 0 }}
-            className={`z-50 absolute w-full shadow-cart lg:w-4/12 h-screen bg-white top-0 right-0`}>
+            className={`z-50 absolute w-full shadow-cart md:w-8/12 lg:w-4/12 h-screen bg-white top-0 right-0`}>
             <div className="w-full justify-between items-center flex py-3 md:px-5 px-2 border border-b">
               <h1 className="text-2xl font-bold text-black/70">Your Order</h1>
               <button onClick={() => setShowCart(false)}>
                 <IoClose className="text-2xl text-black/70 hover:scale-125 transition-transform" />
               </button>
             </div>
-            <div className="md:px-5 px-2 h-auto absolute w-full">
+            <div className="md:px-5 px-2 h-auto">
               <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
                 {cart.map((item) => {
                   return (
@@ -54,7 +53,7 @@ export default function Cart({ className, showCart, setShowCart }) {
   );
 }
 
-const CardCart = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) => {
+const CardCart = ({ item, removeFromCart }) => {
   return (
     <div
       key={item.id}
@@ -70,23 +69,7 @@ const CardCart = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) 
             </button>
           </div>
           <div className="flex items-center rounded h-7 border group-hover:border-slate-300">
-            <button
-              className="border-r p-1 group-hover:border-slate-300 transition-colors"
-              onClick={() => increaseQuantity(item.id)}>
-              <BsPlus className="hover:scale-150 transition-transform" />
-            </button>
-            <input
-              type="text"
-              value={item.quantity}
-              min={1}
-              readOnly
-              className="w-10 text-center px-1 group-hover:bg-gray-200 transition-colors"
-            />
-            <button
-              className="border-l p-1 group-hover:border-slate-300 transition-colors"
-              onClick={() => decreaseQuantity(item.id)}>
-              <BsDash className="hover:scale-150 transition-transform" />
-            </button>
+            <CountCard item={item} />
           </div>
         </div>
       </div>

@@ -19,27 +19,27 @@ export default function FoodCard({ type }) {
 
   return (
     <>
-      {foods.map(({ id, name, image, description, price }) => {
+      {foods.map((item) => {
         return (
           <motion.div
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            key={id}
+            key={item.id}
             className="flex items-center justify-center bg-white rounded-md w-5/12 p-5 space-x-5 border border-[#35b8be]/20 hover:border-[#35b8be] shadow-sm">
             <div className="h-auto w-auto">
-              <Image src={image} alt={name} width={120} height={120} className="rounded-lg" />
+              <Image src={item.image} alt={item.name} width={120} height={120} className="rounded-lg" />
             </div>
             <div>
               <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold">{name}</h2>
-                <p className="text-primary">{formatRp(price)}</p>
+                <h2 className="text-xl font-bold">{item.name}</h2>
+                <p className="text-primary">{formatRp(item.price)}</p>
               </div>
-              <p className="text-paragraf leading-normal text-[15px]">{description}</p>
-              <div className="flex gap-5 mt-2 justify-end w-full">
+              <p className="text-paragraf leading-normal text-[15px]">{item.description}</p>
+              <div className="flex mt-2 w-full justify-end">
                 <button
                   className="py-2 rounded text-sm text-white px-4 bg-primary shadow-sm hover:contrast-125 transition-all duration-300"
-                  onClick={() => addToCart(id)}>
+                  onClick={() => addToCart(item.id)}>
                   Add to Cart
                 </button>
               </div>
