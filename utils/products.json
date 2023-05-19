@@ -1,0 +1,120 @@
+{
+  "burgers": [
+    {
+      "id": 1,
+      "name": "beef buger",
+      "image": "/products/burgers/beef-burger.jpg",
+      "description": "Fresh beef, juicy patty, and perfect buns create a tantalizing dining experience.",
+      "price": 14.0
+    },
+    {
+      "id": 2,
+      "name": "chese burger",
+      "image": "/products/burgers/chese-burger.jpg",
+      "description": "Delicious Cheese Burger Delight: Melting Cheese and Juicy Beef in Every Bite!",
+      "price": 14.0
+    },
+    {
+      "id": 3,
+      "name": "chicken burger",
+      "image": "/products/burgers/chicken-burger.jpg",
+      "description": "Crave-Worthy Chicken Burger: Tender Chicken Patty with Irresistible Flavors!",
+      "price": 15.0
+    },
+    {
+      "id": 4,
+      "name": "clasic burger",
+      "image": "/products/burgers/clasic-burger.jpg",
+      "description": "Clasic Burger: Perfectly Grilled Patty, Fresh Ingredients, and Unforgettable Flavors!",
+      "price": 13.0
+    },
+    {
+      "id": 5,
+      "name": "veggie burger",
+      "image": "/products/burgers/veggie-burger.jpg",
+      "description": "Veggie Burger: Plant-Based Goodness in Every Bite,  and Pure Burger Bliss!",
+      "price": 13.0
+    },
+    {
+      "id": 6,
+      "name": "burger BBQ",
+      "image": "/products/burgers/burger-bbq.jpg",
+      "description": "BBQ Burger Bliss: Savory Grilled Patty with Smoky BBQ Flavors!",
+      "price": 13.0
+    }
+  ],
+  "sides": [
+    {
+      "id": 7,
+      "name": "french fries",
+      "image": "/products/sides/french-fries.jpg",
+      "description": "Introducing Truffle-Infused French Fries, the Latest Culinary Delight!",
+      "price": 15.0
+    },
+    {
+      "id": 8,
+      "name": "fries chese",
+      "image": "/products/sides/fries-chese.jpg",
+      "description": "Indulge in Irresistible Cheesy French Fries That Will Leave You Craving for More!",
+      "price": 16.0
+    },
+    {
+      "id": 9,
+      "name": "fries rustic",
+      "image": "/products/sides/fries-rustic.jpg",
+      "description": "Savory and Crispy Rustic French Fries Take Center Stage on Menus Everywhere!",
+      "price": "13.000"
+    },
+    {
+      "id": 10,
+      "name": "popcorn",
+      "image": "/products/sides/popcorn.jpg",
+      "description": "Discover the Ultimate Movie Snack with Our Irresistibly Crunchy and Flavorful Popcorn Delights!",
+      "price": 18.0
+    }
+  ],
+  "drinks": [
+    {
+      "id": 11,
+      "name": "drinks cola",
+      "image": "/products/drinks/drink-cola.jpg",
+      "description": "Refresh Your Senses with Our Classic Cola Drink: The Perfect Thirst Quencher!",
+      "price": 9.0
+    },
+    {
+      "id": 12,
+      "name": "drinks lemon",
+      "image": "/products/drinks/drink-lemon.jpg",
+      "description": "Zesty and Refreshing: Sip on the Tangy Delight of our Signature Lemon Drink!",
+      "price": 7.0
+    },
+    {
+      "id": 13,
+      "name": "milkshake",
+      "image": "/products/drinks/milkshake.jpg",
+      "description": "Indulge in Creamy Bliss: Treat Yourself to Our Irresistible Milkshakes, a Dreamy Delight!",
+      "price": 11.0
+    },
+    {
+      "id": 14,
+      "name": "soft drink",
+      "image": "/products/drinks/soft-drink.jpg",
+      "description": "Fizz and Flavor Galore: Quench Your Thirst with Our Assortment of Refreshing Soft Drinks!",
+      "price": 9.0
+    },
+    {
+      "id": 15,
+      "name": "tea drink",
+      "image": "/products/drinks/tea-drink.jpg",
+      "description": "Sip Serenity: Unwind with Our Exquisite Selection of Tea Drinks, Steeped in Tranquility!",
+      "price": 10.0
+    },
+    {
+      "id": 16,
+      "name": "water",
+      "image": "/products/drinks/water.jpg",
+      "description": "Stay Refreshed with Our Crystal Clear Water, the Essence of Replenishment!",
+      "price": 0
+    }
+  ]
+}
