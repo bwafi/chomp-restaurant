@@ -17,12 +17,17 @@ const ProductReducer = (state, action) => {
         sides.find((prod) => prod.id === action.payload.id) ||
         drinks.find((prod) => prod.id === action.payload.id);
       const existingItem = state.cart.find((existing) => existing.id === itemAdd.id);
-
       return {
         ...state,
         cart: existingItem
           ? state.cart.map((item) => (item.id === itemAdd.id ? { ...item, quantity: item.quantity + 1 } : item))
           : [...state.cart, { ...itemAdd, quantity: 1 }],
+      };
+
+    case 'REMOVE_FROM_CART':
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
 
     default:
@@ -46,14 +51,14 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function HandleQuantity() {
-    dispatch({ type });
+  function removeFromCart(itemId) {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: { id: itemId } });
   }
 
   console.log(state.cart);
 
   return (
-    <GlobalContext.Provider value={{ products: state.products, cart: state.cart, addToCart }}>
+    <GlobalContext.Provider value={{ products: state.products, cart: state.cart, addToCart, removeFromCart }}>
       {children}
     </GlobalContext.Provider>
   );

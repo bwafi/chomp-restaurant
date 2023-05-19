@@ -8,6 +8,8 @@ import { BsPlus } from 'react-icons/bs';
 import { BsDash } from 'react-icons/bs';
 
 export default function Cart({ className, showCart, setShowCart }) {
+  const { cart, removeFromCart } = ProductContext();
+
   return (
     <AnimatePresence>
       {showCart && (
@@ -28,8 +30,12 @@ export default function Cart({ className, showCart, setShowCart }) {
                 <IoClose className="text-2xl text-black/70 hover:scale-125 transition-transform" />
               </button>
             </div>
-            <div className="md:px-5 px-2 h-auto">
-              <CardCart />
+            <div className="md:px-5 px-2 h-auto absolute w-full">
+              <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
+                {cart.map((item) => {
+                  return <CardCart key={item.id} item={item} removeFromCart={removeFromCart} />;
+                })}
+              </div>
             </div>
             <PayButton />
           </motion.div>
@@ -39,46 +45,38 @@ export default function Cart({ className, showCart, setShowCart }) {
   );
 }
 
-const CardCart = () => {
-  const { cart } = ProductContext();
-
-  const handleIncrement = () => [];
-
+const CardCart = ({ item, removeFromCart }) => {
   return (
-    <>
-      {cart.map((item) => {
-        return (
-          <div
-            key={item.id}
-            className="flex py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
-            <Image src={item.image} alt={item.name} width={70} height={70} className="shadow rounded" />
-            <div className=" w-full">
-              <div className="flex w-full justify-between items-center">
-                <div>
-                  <h3 className="font-bold text-[15px] text-black/80">{item.name}</h3>
-                  <p className="text-black/80 text-[15px]">IDR {item.price}</p>
-                  <button className="text-orange-400 ">Remove</button>
-                </div>
-                <div className="flex items-center rounded h-7 border group-hover:border-slate-300">
-                  <button className="border-r p-1 group-hover:border-slate-300 transition-colors">
-                    <BsPlus className="hover:scale-150 transition-transform" />
-                  </button>
-                  <input
-                    type="text"
-                    value={item.quantity}
-                    min={1}
-                    className="w-10 text-center px-1 group-hover:bg-gray-200 transition-colors"
-                  />
-                  <button className="border-l p-1 group-hover:border-slate-300">
-                    <BsDash className="hover:scale-150 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            </div>
+    <div
+      key={item.id}
+      className="flex w-full py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
+      <Image src={item.image} alt={item.name} width={70} height={70} className="shadow rounded" />
+      <div className=" w-full">
+        <div className="flex w-full justify-between items-center">
+          <div>
+            <h3 className="font-bold text-[15px] text-black/80 ">{item.name}</h3>
+            <p className="text-black/80 text-[15px]">IDR {item.price}</p>
+            <button className="text-orange-400" onClick={() => removeFromCart(item.id)}>
+              Remove
+            </button>
           </div>
-        );
-      })}
-    </>
+          <div className="flex items-center rounded h-7 border group-hover:border-slate-300">
+            <button className="border-r p-1 group-hover:border-slate-300 transition-colors">
+              <BsPlus className="hover:scale-150 transition-transform" />
+            </button>
+            <input
+              type="text"
+              value={item.quantity}
+              min={1}
+              className="w-10 text-center px-1 group-hover:bg-gray-200 transition-colors"
+            />
+            <button className="border-l p-1 group-hover:border-slate-300">
+              <BsDash className="hover:scale-150 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
