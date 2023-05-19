@@ -9,11 +9,13 @@ import MenuList from './ui/MenuList';
 import Cart from './Cart';
 import ButtonSquare from './ui/ButtonSquare';
 import Banner from './Banner';
+import { ProductContext } from '@/context/GlobalState';
 
 export default function Navbar() {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [onScroll, setOnScroll] = useState(false);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const navbarBackground = () => {
@@ -29,6 +31,17 @@ export default function Navbar() {
       window.removeEventListener('scroll', navbarBackground);
     };
   }, []);
+
+  const { cart } = ProductContext();
+
+  useEffect(() => {
+    const calculateTotalItems = () => {
+      const total = cart.reduce((acc, item) => acc + item.quantity, 0);
+      setTotalItems(total);
+    };
+
+    calculateTotalItems();
+  }, [cart]);
 
   return (
     <header>
@@ -49,7 +62,9 @@ export default function Navbar() {
           <ButtonSquare
             className="bg-primary relative bg-button-wave shadow hover:opacity-80 transition-opacity"
             onClick={() => setShowCart(true)}>
-            <div className="w-6 h-6 bg-white rounded-full absolute -top-3 -right-3 text-primary shadow-md">0</div>
+            <div className="w-6 h-6 bg-white rounded-full absolute -top-3 -right-3 text-primary shadow-md">
+              {totalItems}
+            </div>
             <IoIosCart className="text-2xl text-white" />
           </ButtonSquare>
           <ButtonSquare

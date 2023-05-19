@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProductContext } from '@/context/GlobalState';
-import { formatRp } from '@/context/FormatRp';
+import { formatRp } from '@/context/formatRp';
 
 export default function FoodCard({ type }) {
   const { products, addToCart } = ProductContext();

@@ -6,10 +6,10 @@ import Image from 'next/image';
 import { ProductContext } from '@/context/GlobalState';
 import { BsPlus } from 'react-icons/bs';
 import { BsDash } from 'react-icons/bs';
-import { formatRp } from '@/context/FormatRp';
+import { formatRp } from '@/context/formatRp';
 
 export default function Cart({ className, showCart, setShowCart }) {
-  const { cart, removeFromCart } = ProductContext();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = ProductContext();
 
   return (
     <AnimatePresence>
@@ -34,11 +34,19 @@ export default function Cart({ className, showCart, setShowCart }) {
             <div className="md:px-5 px-2 h-auto absolute w-full">
               <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
                 {cart.map((item) => {
-                  return <CardCart key={item.id} item={item} removeFromCart={removeFromCart} />;
+                  return (
+                    <CardCart
+                      key={item.id}
+                      item={item}
+                      removeFromCart={removeFromCart}
+                      increaseQuantity={increaseQuantity}
+                      decreaseQuantity={decreaseQuantity}
+                    />
+                  );
                 })}
               </div>
             </div>
-            <PayButton />
+            <PayButton cart={cart} />
           </motion.div>
         </motion.div>
       )}
@@ -46,7 +54,7 @@ export default function Cart({ className, showCart, setShowCart }) {
   );
 }
 
-const CardCart = ({ item, removeFromCart }) => {
+const CardCart = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) => {
   return (
     <div
       key={item.id}
@@ -62,16 +70,21 @@ const CardCart = ({ item, removeFromCart }) => {
             </button>
           </div>
           <div className="flex items-center rounded h-7 border group-hover:border-slate-300">
-            <button className="border-r p-1 group-hover:border-slate-300 transition-colors">
+            <button
+              className="border-r p-1 group-hover:border-slate-300 transition-colors"
+              onClick={() => increaseQuantity(item.id)}>
               <BsPlus className="hover:scale-150 transition-transform" />
             </button>
             <input
               type="text"
               value={item.quantity}
               min={1}
+              readOnly
               className="w-10 text-center px-1 group-hover:bg-gray-200 transition-colors"
             />
-            <button className="border-l p-1 group-hover:border-slate-300">
+            <button
+              className="border-l p-1 group-hover:border-slate-300 transition-colors"
+              onClick={() => decreaseQuantity(item.id)}>
               <BsDash className="hover:scale-150 transition-transform" />
             </button>
           </div>
@@ -81,12 +94,14 @@ const CardCart = ({ item, removeFromCart }) => {
   );
 };
 
-const PayButton = () => {
+const PayButton = ({ cart }) => {
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   return (
     <div className="border-t z-50 bg-white absolute w-full bottom-0 md:px-5 px-3 lg:pb-5 md:pb-10 pb-5">
       <div className="flex w-full justify-between my-3">
         <span className="text-lg font-medium text-gray-500">Subtotal</span>
-        <span className="text-lg font-bold text-black">IDR 200.000</span>
+        <span className="text-lg font-bold text-black">{formatRp(total)}</span>
       </div>
       <button className="w-full bg-primary text-white py-3 rounded shadow hover:opacity-80 transition-opacity">
         Continue to Checkout

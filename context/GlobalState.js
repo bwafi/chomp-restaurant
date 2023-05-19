@@ -29,6 +29,20 @@ const ProductReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
+    case 'INCREASE_QUANTITY':
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
+        ),
+      };
+    case 'DECREASE_QUANTITY':
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+        ),
+      };
 
     default:
       return state;
@@ -52,13 +66,38 @@ export const GlobalProvider = ({ children }) => {
   }
 
   function removeFromCart(itemId) {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: { id: itemId } });
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: { id: itemId },
+    });
+  }
+
+  function increaseQuantity(itemId) {
+    dispatch({
+      type: 'INCREASE_QUANTITY',
+      payload: { id: itemId },
+    });
+  }
+
+  function decreaseQuantity(itemId) {
+    dispatch({
+      type: 'DECREASE_QUANTITY',
+      payload: { id: itemId },
+    });
   }
 
   console.log(state.cart);
 
   return (
-    <GlobalContext.Provider value={{ products: state.products, cart: state.cart, addToCart, removeFromCart }}>
+    <GlobalContext.Provider
+      value={{
+        products: state.products,
+        cart: state.cart,
+        addToCart,
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
+      }}>
       {children}
     </GlobalContext.Provider>
   );
