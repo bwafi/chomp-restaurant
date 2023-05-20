@@ -21,7 +21,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const navbarBackground = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 22) {
         setOnScroll(true);
       } else {
         setOnScroll(false);
@@ -44,10 +44,10 @@ export default function Navbar() {
   }, [cart]);
 
   return (
-    <header>
-      <Banner />
+    <header className="w-full h-auto">
+      {/* <Banner /> */}
       <nav
-        className={`w-full lg:static top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all ${
+        className={`w-full lg:static top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all overflow-hidden ${
           onScroll && 'lg:fixed top-0'
         }`}>
         <div className="">

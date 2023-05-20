@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ProductContext } from '@/context/GlobalState';
 import { formatRp } from '@/context/formatRp';
 import CountCard from './ui/CountCard';
+import Button from './ui/Button';
 
 export default function Cart({ className, showCart, setShowCart }) {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = ProductContext();
@@ -30,22 +31,30 @@ export default function Cart({ className, showCart, setShowCart }) {
                 <IoClose className="text-2xl text-black/70 hover:scale-125 transition-transform" />
               </button>
             </div>
-            <div className="md:px-5 px-2 h-auto">
-              <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
-                {cart.map((item) => {
-                  return (
-                    <CardCart
-                      key={item.id}
-                      item={item}
-                      removeFromCart={removeFromCart}
-                      increaseQuantity={increaseQuantity}
-                      decreaseQuantity={decreaseQuantity}
-                    />
-                  );
-                })}
-              </div>
+            <div className="md:px-5 px-2 h-screen">
+              {cart.length === 0 ? (
+                <div className="flex justify-center items-center flex-col h-5/6 gap-5">
+                  {/* eslint-disable-next-line */}
+                  <p>We couldn't find any items in your cart.</p>
+                  <Button className="bg-primary relative bg-button-wave text-white drawn-arrow">Start an Order</Button>
+                </div>
+              ) : (
+                <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
+                  {cart.map((item) => {
+                    return (
+                      <CardCart
+                        key={item.id}
+                        item={item}
+                        removeFromCart={removeFromCart}
+                        increaseQuantity={increaseQuantity}
+                        decreaseQuantity={decreaseQuantity}
+                      />
+                    );
+                  })}
+                </div>
+              )}
             </div>
-            <PayButton cart={cart} />
+            {cart.length > 0 && <PayButton cart={cart} />}
           </motion.div>
         </motion.div>
       )}

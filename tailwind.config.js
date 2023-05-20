@@ -13,6 +13,7 @@ module.exports = {
         'banner-wave': 'url("../public/icon/banner-wave.svg")',
         'content-pattern': 'url("../public/icon/content-pattern.svg")',
         'bg-content': 'url("../public/icon/bg-content.svg")',
+        'drawn-arrow': 'url("../public/icon/drawn-arrow.svg")',
       },
     },
   },

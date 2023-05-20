@@ -5,3 +5,7 @@
 .shadow-cart {
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
 }
+
+.drawn-arrow::before {
+  @apply content-[''] block absolute bg-drawn-arrow w-32 h-32 bg-no-repeat top-16 left-36;
+}
