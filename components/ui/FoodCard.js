@@ -26,16 +26,22 @@ export default function FoodCard({ type }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
             key={item.id}
-            className="flex items-center justify-center bg-white rounded-md w-5/12 p-5 space-x-5 border border-[#35b8be]/20 hover:border-[#35b8be] shadow-sm">
-            <div className="h-auto w-auto">
-              <Image src={item.image} alt={item.name} width={120} height={120} className="rounded-lg" />
+            className="flex flex-col md:flex-row items-center justify-center bg-white rounded-md lg:w-[45%] md:w-10/12 sm:w-[48%] w-full p-5 md:space-x-5 space-y-10 md:space-y-0 border border-[#35b8be]/20 hover:border-[#35b8be] shadow-sm">
+            <div className="shrink-0">
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={300}
+                height={300}
+                className="rounded-lg lg:w-28 lg:h-auto md:w-32 md:h-auto w-auto h-auto aspect-square object-cover"
+              />
             </div>
-            <div>
-              <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold">{item.name}</h2>
+            <div className="flex flex-col md:gap-1 gap-3 justify-start">
+              <div className="flex justify-between flex-col md:flex-row">
+                <h2 className="text-xl font-bold capitalize">{item.name}</h2>
                 <p className="text-primary">{formatRp(item.price)}</p>
               </div>
-              <p className="text-paragraf leading-normal text-[15px]">{item.description}</p>
+              <p className="text-paragraf leading-normal line-clamp-3">{item.description}</p>
               <div className="flex mt-2 w-full justify-end">
                 <button
                   className="py-2 rounded text-sm text-white px-4 bg-primary shadow-sm hover:contrast-125 transition-all duration-300"

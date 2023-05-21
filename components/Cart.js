@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -10,6 +10,20 @@ import Button from './ui/Button';
 
 export default function Cart({ className, showCart, setShowCart }) {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = ProductContext();
+  const cartRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setShowCart(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowCart]);
 
   return (
     <AnimatePresence>
@@ -18,13 +32,15 @@ export default function Cart({ className, showCart, setShowCart }) {
           initial={{ display: 'hidden', opacity: 0 }}
           animate={{ display: 'block', opacity: 1 }}
           exit={{ opacity: 0, display: 'hidden' }}
-          className={`${className} w-screen z-50 top-0 h-screen bg-black/70 fixed `}>
+          transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className={`${className} w-screen z-40 top-0 h-screen bg-black/70 fixed `}>
           <motion.div
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            initial={{ x: 500, opacity: 0 }}
+            initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 500, opacity: 0 }}
-            className={`z-50 absolute w-full shadow-cart md:w-8/12 lg:w-4/12 h-screen bg-white top-0 right-0`}>
+            exit={{ x: 20, opacity: 0 }}
+            ref={cartRef}
+            className={`z-50 cart-body absolute w-full shadow-cart md:w-8/12 lg:w-4/12 h-screen bg-white top-0 right-0`}>
             <div className="w-full justify-between items-center flex py-3 md:px-5 px-2 border border-b">
               <h1 className="text-2xl font-bold text-black/70">Your Order</h1>
               <button onClick={() => setShowCart(false)}>
@@ -67,11 +83,11 @@ const CardCart = ({ item, removeFromCart }) => {
     <div
       key={item.id}
       className="flex w-full py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
-      <Image src={item.image} alt={item.name} width={70} height={70} className="shadow rounded" />
+      <Image src={item.image} alt={item.name} width={70} height={70} loading="lazy" className="shadow rounded" />
       <div className=" w-full">
         <div className="flex w-full justify-between items-center">
           <div>
-            <h3 className="font-bold text-[15px] text-black/80 ">{item.name}</h3>
+            <h3 className="font-bold text-[15px] text-black/80 capitalize">{item.name}</h3>
             <p className="text-black/80 text-[15px]">{formatRp(item.price)}</p>
             <button className="text-orange-400" onClick={() => removeFromCart(item.id)}>
               Remove
@@ -87,7 +103,9 @@ const CardCart = ({ item, removeFromCart }) => {
 };
 
 const PayButton = ({ cart }) => {
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = useMemo(() => {
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  }, [cart]);
 
   return (
     <div className="border-t z-50 bg-white absolute w-full bottom-0 md:px-5 px-3 lg:pb-5 md:pb-10 pb-5">

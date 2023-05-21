@@ -27,9 +27,9 @@ export default function BrowseMenu() {
   };
 
   return (
-    <section className="w-full mx-auto my-32 bg-bg-content">
-      <div className="w-5/12 mx-auto">
-        <h1 className="text-[55px] text-primary font-bold text-center ">Browse our menu</h1>
+    <section className="w-full mx-auto my-20 bg-bg-content">
+      <div className="lg:w-5/12 w-full mx-auto">
+        <h1 className="md:text-[55px] text-5xl text-primary font-bold text-center ">Browse our menu</h1>
         <p className="text-lg leading-normal text-paragraf text-center py-3">
           Use our menu to place an order online, or{' '}
           <a href="#" className="text-primary underline underline-offset-4">
@@ -38,7 +38,7 @@ export default function BrowseMenu() {
           our store to place a pickup order. Fast and fresh food.
         </p>
       </div>
-      <div className="w-full flex justify-center gap-10 my-10">
+      <div className="w-full flex flex-col md:flex-row justify-center md:gap-10 gap-3 my-10">
         <ButtonMenu
           onClick={() => handleShowBurger()}
           className={`${showBurger && 'bg-primary bg-button-wave text-white border-none transition-colors'}`}>
@@ -55,12 +55,12 @@ export default function BrowseMenu() {
           Drinks
         </ButtonMenu>
       </div>
-      <div className="px-3 py-10 flex gap-7 items-center justify-center flex-wrap">
+      <div className="py-10 flex md:gap-7 sm:gap-3 gap-7 items-center justify-center flex-wrap">
         {showBurger && <FoodCard type="burger" />}
         {showSides && <FoodCard type="sides" />}
         {showDrinks && <FoodCard type="drinks" />}
       </div>
-      <div className="w-full flex justify-center pt-20">
+      <div className="w-full flex justify-center lg:pt-20 pt-10">
         <Button className="bg-primary bg-button-wave text-white">See Full Menu</Button>
       </div>
     </section>
@@ -71,7 +71,7 @@ const ButtonMenu = ({ className, children, ...props }) => {
   return (
     <button
       {...props}
-      className={`${className} text-paragraf px-[45px] py-[9px] border border-black/40 rounded-md shadow`}>
+      className={`${className} text-paragraf md:px-[45px] py-[9px] border border-black/40 rounded-md shadow`}>
       {children}
     </button>
   );

@@ -29,16 +29,16 @@
       "price": 13000
     },
     {
-      "id": 5,
-      "name": "veggie burger",
-      "image": "/products/burgers/veggie-burger.jpg",
-      "description": "Veggie Burger: Plant-Based Goodness in Every Bite,  and Pure Burger Bliss!",
-      "price": 13000
-    },
-    {
       "id": 6,
       "name": "burger BBQ",
       "image": "/products/burgers/burger-bbq.jpg",
+      "description": "BBQ Burger Bliss: Savory Grilled Patty with Smoky BBQ Flavors!",
+      "price": 13000
+    },
+    {
+      "id": 5,
+      "name": "veggie burger",
+      "image": "/products/burgers/veggie-burger.jpg",
       "description": "BBQ Burger Bliss: Savory Grilled Patty with Smoky BBQ Flavors!",
       "price": 13000
     }
@@ -63,7 +63,7 @@
       "name": "fries rustic",
       "image": "/products/sides/fries-rustic.jpg",
       "description": "Savory and Crispy Rustic French Fries Take Center Stage on Menus Everywhere!",
-      "price": "1300000"
+      "price": 13000
     },
     {
       "id": 10,
@@ -104,7 +104,7 @@
     },
     {
       "id": 15,
-      "name": "tea drink",
+      "name": "tea",
       "image": "/products/drinks/tea-drink.jpg",
       "description": "Sip Serenity: Unwind with Our Exquisite Selection of Tea Drinks, Steeped in Tranquility!",
       "price": 10000

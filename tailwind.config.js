@@ -15,6 +15,9 @@ module.exports = {
         'bg-content': 'url("../public/icon/bg-content.svg")',
         'drawn-arrow': 'url("../public/icon/drawn-arrow.svg")',
       },
+      screens: {
+        sm: '576px',
+      },
     },
   },
   plugins: [],
