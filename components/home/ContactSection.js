@@ -14,7 +14,9 @@ const ContactSection = () => {
           schedule.
         </p>
         <Link href="https://wa.me/6282335955903" target="_blank">
-          <Button className="my-10 bg-button-wave bg-primary text-white">ID +62 823-3595-5903</Button>
+          <Button className="my-10 bg-button-wave text-sm md:text-base bg-primary text-white">
+            ID +62 823-3595-5903
+          </Button>
         </Link>
       </div>
       <div className="lg:w-5/12 w-full flex justify-center">
