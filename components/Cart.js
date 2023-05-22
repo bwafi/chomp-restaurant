@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ProductContext } from '@/context/GlobalState';
 import { formatRp } from '@/context/formatRp';
@@ -26,7 +26,7 @@ export default function Cart({ className, showCart, setShowCart }) {
   }, [setShowCart]);
 
   return (
-    <AnimatePresence>
+    <>
       {showCart && (
         <motion.div
           initial={{ display: 'hidden', opacity: 0 }}
@@ -50,7 +50,6 @@ export default function Cart({ className, showCart, setShowCart }) {
             <div className="md:px-5 px-2 h-screen">
               {cart.length === 0 ? (
                 <div className="flex justify-center items-center flex-col h-5/6 gap-5">
-                  {/* eslint-disable-next-line */}
                   <p>We couldn't find any items in your cart.</p>
                   <Button className="bg-primary relative bg-button-wave text-white drawn-arrow">Start an Order</Button>
                 </div>
@@ -74,7 +73,7 @@ export default function Cart({ className, showCart, setShowCart }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
 

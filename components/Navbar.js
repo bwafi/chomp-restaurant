@@ -75,8 +75,8 @@ export default function Navbar() {
         </div>
       </nav>
       <MenuList
-        className={`fixed z-30 py-5 top-0 lg:hidden bg-white flex flex-col space-y-10 w-full px-5 shadow-md transition-transform duration-300 ease-linear ${
-          showMenu ? 'top-20' : '-translate-y-full'
+        className={`fixed z-30 py-10 top-0 lg:hidden bg-white flex flex-col space-y-10 w-full px-5 shadow-md transition-transform duration-300 ease-linear ${
+          showMenu ? 'top-16' : '-translate-y-full'
         }`}
       />
       <Cart setShowCart={setShowCart} showCart={showCart} />

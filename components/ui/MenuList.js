@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import React, { HTMLAttributes } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function MenuList({ className }) {
+  const pathname = usePathname();
+
   const navList = [
     {
       text: 'Home',
@@ -24,11 +26,13 @@ export default function MenuList({ className }) {
       path: '/contact',
     },
   ];
+
   return (
     <ul className={className}>
       {navList.map(({ text, path }) => {
+        const isActive = pathname === path;
         return (
-          <li key={text} className="text-[#28224b] font-medium">
+          <li key={text} className={`${isActive ? 'text-primary' : 'text-[#28224b]'} font-medium`}>
             <Link href={path}>{text}</Link>
           </li>
         );
