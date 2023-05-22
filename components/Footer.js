@@ -35,7 +35,7 @@ const Footer = () => {
         <p className="text-paragraf ">
           Built by{' '}
           <Link href="https://github.com/bwafi" target="_blank" className="text-primary">
-            Syharoni
+            Syahroni
           </Link>{' '}
           · Powered by{' '}
           <Link href="https://nextjs.org/" target="_blank" className="text-primary">
@@ -71,8 +71,8 @@ const Quotes = () => {
   }, []);
 
   return (
-    <div className="h-fit md:w-8/12 w-full py-3 px-3 flex items-center flex-col space-y-3 border border-heading/30 rounded-md shadow-sm">
-      <h4 className="text-heading font-bold ">QUOTES RANDOM</h4>
+    <div className="md:w-8/12 w-full h-full py-3 px-3 flex items-center flex-col space-y-3 border border-heading/30 rounded shadow-sm">
+      <h4 className="text-heading font-bold text-lg">QUOTES RANDOM</h4>
       {Object.keys(quotes).length === 0 ? (
         <i>Loading...</i>
       ) : (
@@ -83,9 +83,9 @@ const Quotes = () => {
             wrapper="blockquote"
             cursor={true}
             repeat={Infinity}
-            className="text-center text-lg text-paragraf"
+            className="text-center text-lg text-heading"
           />
-          <i className="font-light text-lg font-serif">~{quotes.author}~</i>
+          <i className="font-light text-lg font-serif text-paragraf">~{quotes.author}~</i>
         </>
       )}
     </div>
