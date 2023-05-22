@@ -17,7 +17,7 @@ export default function AboutSection() {
         <Button className="my-10 bg-button-wave bg-primary text-white">Learn about us</Button>
       </div>
       <div>
-        <Image src={aboutImg} alt="about" />
+        <Image src={aboutImg} quality={60} alt="about" />
       </div>
     </section>
   );

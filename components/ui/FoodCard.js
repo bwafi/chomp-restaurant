@@ -33,6 +33,7 @@ export default function FoodCard({ type }) {
                 alt={item.name}
                 width={300}
                 height={300}
+                quality={60}
                 className="rounded-lg lg:w-28 lg:h-auto md:w-32 md:h-auto w-auto h-auto aspect-square object-cover"
               />
             </div>

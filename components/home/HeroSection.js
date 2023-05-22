@@ -17,7 +17,7 @@ export default function HeroSection() {
         </p>
         <Button className="bg-button-wave bg-primary text-white">Place an Order</Button>
         <div className="mx-auto lg:mx-0">
-          <Image src={trustPilot} alt="trust Pilot logo" className="mb-2 lg:mx-0 mx-auto" />
+          <Image src={trustPilot} quality={60} alt="trust Pilot logo" className="mb-2 lg:mx-0 mx-auto" />
           <p className="text-heading">
             <span className="text-primary pl-1">4.8 out of 5</span> based on 2000+ reviews
           </p>
