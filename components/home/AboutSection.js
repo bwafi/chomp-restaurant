@@ -5,7 +5,7 @@ import Button from '../ui/Button';
 
 export default function AboutSection() {
   return (
-    <section className="flex bg-bg-content lg:flex-row flex-col w-full items-center gap-12 lg:gap-32 my-32">
+    <section className="flex bg-bg-content lg:flex-row flex-col w-full items-center gap-12 lg:gap-32 lg:my-32 my-16">
       <div className="lg:w-5/12 md:w-8/12 w-full lg:block flex flex-col justify-center items-center">
         <h1 className="lg:w-10/12 w-full lg:text-left text-center my-5 leading-none font-bold text-primary text-5xl md:text-[55px]">
           The home of fresh products

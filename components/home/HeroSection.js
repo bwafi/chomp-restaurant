@@ -6,7 +6,7 @@ import heroImg from '../../public/img/hero-img.png';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white flex flex-col lg:flex-row w-full lg:mt-32 md:mt-52 mt-32 mb-32 md:mb-32 justify-center items-center gap-20">
+    <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 justify-center items-center gap-20">
       <div className="flex flex-col lg:items-start items-center lg:w-6/12 md:w-10/12 w-full lg:space-y-5 space-y-7">
         <h1 className="font-bold md:text-6xl text-5xl lg:text-left text-center">
           Beautiful food & takeaway, <span className="text-primary">delivered</span> to your door.

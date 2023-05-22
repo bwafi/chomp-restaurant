@@ -38,7 +38,7 @@ export default function BrowseMenuSection() {
           our store to place a pickup order. Fast and fresh food.
         </p>
       </div>
-      <div className="w-full flex flex-col md:flex-row justify-center md:gap-10 gap-3 my-10">
+      <div className="w-10/12 md:w-full flex flex-col md:flex-row justify-center mx-auto md:gap-10 gap-3 my-10">
         <ButtonMenu
           onClick={() => handleShowBurger()}
           className={`${showBurger && 'bg-primary bg-button-wave text-white border-none transition-colors'}`}>
@@ -60,8 +60,8 @@ export default function BrowseMenuSection() {
         {showSides && <FoodCard type="sides" />}
         {showDrinks && <FoodCard type="drinks" />}
       </div>
-      <div className="w-full flex justify-center lg:pt-20 pt-10">
-        <Button className="bg-primary w-10/12 bg-button-wave text-white">See Full Menu</Button>
+      <div className="w-full flex justify-center lg:pt-14 pt-10">
+        <Button className="bg-primary bg-button-wave text-white">See Full Menu</Button>
       </div>
     </section>
   );
