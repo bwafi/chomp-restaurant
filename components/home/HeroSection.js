@@ -4,7 +4,7 @@ import Image from 'next/image';
 import trustPilot from '../../public/logo/trustpilot-logo.svg';
 import heroImg from '../../public/img/hero-img.png';
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <section className="bg-white flex flex-col lg:flex-row w-full lg:mt-32 md:mt-52 mt-32 mb-56 justify-center items-center gap-20">
       <div className="flex flex-col lg:w-6/12 md:w-10/12 w-full lg:space-y-5 space-y-7">
@@ -22,7 +22,7 @@ export default function Hero() {
         </div>
         <div className="mx-auto lg:mx-0">
           <Image src={trustPilot} alt="trust Pilot logo" className="mb-2 lg:mx-0 mx-auto" />
-          <p className="text-text">
+          <p className="text-heading">
             <span className="text-primary pl-1">4.8 out of 5</span> based on 2000+ reviews
           </p>
         </div>

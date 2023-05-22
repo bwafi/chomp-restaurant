@@ -9,3 +9,7 @@
 .drawn-arrow::before {
   @apply content-[''] block absolute bg-drawn-arrow w-32 h-32 bg-no-repeat top-16 left-36;
 }
+
+.faq-pattern::after {
+  @apply content-[''] block absolute top-0 left-0 w-48 h-48 bg-content-pattern bg-no-repeat;
+}

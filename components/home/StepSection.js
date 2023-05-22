@@ -31,7 +31,7 @@ export default function StepSection() {
             <div key={title} className="flex lg:w-3/12 md:w-10/12 w-full flex-col items-center">
               <Image src={src} alt="Step 1" width={350} height={350} className="w-auto h-auto" />
               <div className="w-11/12 lg:w-full md:w-8/12">
-                <h2 className="font-bold my-3 text-[22px] text-text text-center">{title}</h2>
+                <h2 className="font-bold my-3 text-[22px] text-heading text-center">{title}</h2>
                 <p className="text-paragraf mx-auto text-lg leading-normal text-center">{text}</p>
               </div>
             </div>

@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import logo from '../public/logo/logo.png';
 import { IoIosCart } from 'react-icons/io';
 import { FiMenu } from 'react-icons/fi';
 import MenuList from './ui/MenuList';
@@ -52,7 +51,7 @@ export default function Navbar() {
         }`}>
         <div className="">
           <Link href={'/'}>
-            <Image src={logo} alt="Logo" priority />
+            <Image src="/logo/logo.svg" width={40} height={40} alt="Logo" priority />
           </Link>
         </div>
 

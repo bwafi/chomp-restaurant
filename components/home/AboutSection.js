@@ -3,7 +3,7 @@ import React from 'react';
 import aboutImg from '../../public/img/about.png';
 import Button from '../ui/Button';
 
-export default function About() {
+export default function AboutSection() {
   return (
     <section className="flex bg-bg-content lg:flex-row flex-col w-full items-center gap-12 lg:gap-32 my-32">
       <div className="lg:w-5/12 md:w-8/12 w-full lg:block flex flex-col justify-center items-center">

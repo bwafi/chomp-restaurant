@@ -1,8 +1,10 @@
 import Container from '@/components/Container';
-import About from '@/components/home/About';
-import BrowseMenu from '@/components/home/BrowseMenu';
-import Hero from '@/components/home/Hero';
-import SectionFaq from '@/components/home/SectionFaq';
+import AboutSection from '@/components/home/AboutSection';
+import BrowseMenuSection from '@/components/home/BrowseMenuSection';
+import ContactSection from '@/components/home/ContactSection';
+import FaqSection from '@/components/home/FaqSection';
+import HeroSection from '@/components/home/HeroSection';
+import OrderSection from '@/components/home/OrderSection';
 import StepSection from '@/components/home/StepSection';
 import Layout from '@/components/Layout';
 import { GlobalProvider } from '@/context/GlobalState';
@@ -12,11 +14,13 @@ export default function Home() {
     <GlobalProvider>
       <Layout>
         <Container>
-          <Hero />
-          <About />
+          <HeroSection />
+          <AboutSection />
           <StepSection />
-          <BrowseMenu />
-          <SectionFaq />
+          <BrowseMenuSection />
+          <FaqSection />
+          <ContactSection />
+          <OrderSection />
         </Container>
       </Layout>
     </GlobalProvider>

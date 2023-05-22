@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import FoodCard from '../ui/FoodCard';
 import Button from '../ui/Button';
 
-export default function BrowseMenu() {
+export default function BrowseMenuSection() {
   const [showBurger, setShowBurger] = useState(true);
   const [showSides, setShowSides] = useState(false);
   const [showDrinks, setShowDrinks] = useState(false);
