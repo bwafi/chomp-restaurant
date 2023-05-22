@@ -14,7 +14,7 @@ export default function AboutSection() {
           Apart from great food, we also offer a warm and comfortable atmosphere for you and your family to enjoy time
           together. Our friendly and professional service will make your visit an unforgettable experience.
         </p>
-        <Button className="my-10 w-10/12 md:w-auto bg-button-wave bg-primary text-white">Learn about us</Button>
+        <Button className="my-10 bg-button-wave bg-primary text-white">Learn about us</Button>
       </div>
       <div>
         <Image src={aboutImg} alt="about" />

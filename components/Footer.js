@@ -7,19 +7,25 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineTwitter } from 'react-icons/ai';
 import { AiFillGithub } from 'react-icons/ai';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
+import { TypeAnimation } from 'react-type-animation';
 
 const Footer = () => {
   const [quotes, setQuotes] = useState({});
+  const [animationKey, setAnimationKey] = useState(0);
+
   useEffect(() => {
     const generateQuotes = () => {
       axios.get('https://api.quotable.io/random').then((res) => {
         setQuotes(res.data);
+        setAnimationKey((prevKey) => prevKey + 1);
       });
     };
     generateQuotes();
-  }, []);
 
-  console.log(quotes);
+    const intervalId = setInterval(generateQuotes, 20000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <footer className="w-full bg-alice bg-pattern-footer bg-contain bg-left bg-no-repeat pt-16 lg:px-10 md:px-7 px-2">
@@ -35,18 +41,25 @@ const Footer = () => {
             Welcome to our burger restaurant! We are a diner committed to serving unique and satisfying burgers.
           </p>
         </div>
-        <div className="w-3/12 flex items-center flex-col space-y-3">
-          <h4 className="text-heading font-bold tracking-[0.3em]">Quotes Random</h4>
+        <div className="w-3/12 h-fit py-3 px-3 flex items-center flex-col space-y-3 border border-heading/30 rounded-md shadow">
+          <h4 className="text-heading font-bold ">QUOTES RANDOM</h4>
           {Object.keys(quotes).length === 0 ? (
             <i>Loading...</i>
           ) : (
             <>
-              <blockquote className="text-center text-paragraf">"{quotes.content}"</blockquote>
-              <i className="font-semibold text-lg">{quotes.author}</i>
+              <TypeAnimation
+                key={animationKey}
+                sequence={[`"${quotes.content}"`, 20000]}
+                wrapper="blockquote"
+                cursor={true}
+                repeat={Infinity}
+                className="text-center text-lg text-paragraf"
+              />
+              <i className="font-light text-lg font-serif">~{quotes.author}~</i>
             </>
           )}
         </div>
-        <div className="w-5/12 flex gap-24 justify-center">
+        <div className="w-4/12 flex gap-24 justify-center">
           <div className="flex flex-col space-y-6">
             <h4 className="text-heading font-bold tracking-[0.3em]">MENU</h4>
             <p className="text-paragraf">Home</p>

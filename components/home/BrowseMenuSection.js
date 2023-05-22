@@ -61,7 +61,7 @@ export default function BrowseMenuSection() {
         {showDrinks && <FoodCard type="drinks" />}
       </div>
       <div className="w-full flex justify-center lg:pt-20 pt-10">
-        <Button className="bg-primary bg-button-wave text-white">See Full Menu</Button>
+        <Button className="bg-primary w-10/12 bg-button-wave text-white">See Full Menu</Button>
       </div>
     </section>
   );
