@@ -1,27 +1,50 @@
 'use client';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineTwitter } from 'react-icons/ai';
 import { AiFillGithub } from 'react-icons/ai';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 const Footer = () => {
+  const [quotes, setQuotes] = useState({});
+  useEffect(() => {
+    const generateQuotes = () => {
+      axios.get('https://api.quotable.io/random').then((res) => {
+        setQuotes(res.data);
+      });
+    };
+    generateQuotes();
+  }, []);
+
+  console.log(quotes);
+
   return (
     <footer className="w-full bg-alice bg-pattern-footer bg-contain bg-left bg-no-repeat pt-16 lg:px-10 md:px-7 px-2">
       <div className="flex justify-between w-full">
         <div className="w-3/12">
-          <Image src="/logo/logo.svg" alt="Logo Footer" width={40} height={40} priority />
+          <div className="flex items-center gap-3">
+            <Image src="/logo/logo.svg" alt="Logo Footer" width={40} height={40} priority />
+            <h1 className="text-3xl font-bold text-heading">
+              Chomp <span className="text-primary">Restaurant</span>
+            </h1>
+          </div>
           <p className="text-paragraf text-lg mt-6">
             Welcome to our burger restaurant! We are a diner committed to serving unique and satisfying burgers.
           </p>
         </div>
-        <div className="w-3/12 flex items-center flex-col space-y-5">
+        <div className="w-3/12 flex items-center flex-col space-y-3">
           <h4 className="text-heading font-bold tracking-[0.3em]">Quotes Random</h4>
-          <blockquote className="text-center text-paragraf">
-            "Work as though you would live forever, and live as though you would die today. Go another mile."
-          </blockquote>
-          <i className="font-semibold text-lg">Lilas Ikuta</i>
+          {Object.keys(quotes).length === 0 ? (
+            <i>Loading...</i>
+          ) : (
+            <>
+              <blockquote className="text-center text-paragraf">"{quotes.content}"</blockquote>
+              <i className="font-semibold text-lg">{quotes.author}</i>
+            </>
+          )}
         </div>
         <div className="w-5/12 flex gap-24 justify-center">
           <div className="flex flex-col space-y-6">
