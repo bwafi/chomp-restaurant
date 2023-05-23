@@ -10,6 +10,7 @@ const OrderSection = () => {
           alt="Order Image"
           quality={60}
           fill
+          priority
           className="w-auto h-auto object-cover object-center"
         />
       </div>

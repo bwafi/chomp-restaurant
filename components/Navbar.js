@@ -46,7 +46,7 @@ export default function Navbar() {
     <header className="w-full h-auto">
       <Banner />
       <nav
-        className={`w-full lg:static top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all overflow-hidden ${
+        className={`w-full lg:static top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all ${
           onScroll && 'lg:fixed top-0'
         }`}>
         <div className="">

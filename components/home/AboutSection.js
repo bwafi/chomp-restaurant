@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import aboutImg from '../../public/img/about.png';
+import aboutImg from '../../public/img/about-img.png';
 import Button from '../ui/Button';
 
 export default function AboutSection() {

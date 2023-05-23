@@ -2,11 +2,10 @@ import React from 'react';
 import Button from '../ui/Button';
 import Image from 'next/image';
 import trustPilot from '../../public/logo/trustpilot-logo.svg';
-import heroImg from '../../public/img/hero-img.png';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 justify-center items-center gap-20">
+    <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 items-center gap-32">
       <div className="flex flex-col lg:items-start items-center lg:w-6/12 md:w-10/12 w-full lg:space-y-5 space-y-7">
         <h1 className="font-bold md:text-6xl text-5xl lg:text-left text-center">
           Beautiful food & takeaway, <span className="text-primary">delivered</span> to your door.
@@ -24,7 +23,13 @@ export default function HeroSection() {
         </div>
       </div>
       <div>
-        <Image src={heroImg} alt="Hero Image" />
+        <Image
+          src="/img/hero-img-section.png"
+          alt="Hero Image"
+          width={500}
+          height={500}
+          className="rounded-tl-[96px] rounded-bl-3xl rounded-r-lg "
+        />
       </div>
     </section>
   );

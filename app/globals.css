@@ -11,5 +11,5 @@
 }
 
 .faq-pattern::after {
-  @apply content-[''] block absolute top-0 left-20 w-48 h-48 bg-content-pattern bg-no-repeat;
+  @apply content-[''] block absolute top-0 left-0 md:left-24 md:w-40 sm:left-16 md:h-40 w-32 h-32 bg-content-pattern bg-no-repeat;
 }
