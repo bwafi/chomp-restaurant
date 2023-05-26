@@ -1,7 +1,12 @@
 import AboutPage from '../AboutPage';
+import Container from '../Container';
 
 const AboutSection = () => {
-  return <AboutPage src="/img/team-img.png" className="bg-none mb-32" />;
+  return (
+    <Container>
+      <AboutPage src="/img/team-img.png" className="bg-none mb-32" />
+    </Container>
+  );
 };
 
 export default AboutSection;

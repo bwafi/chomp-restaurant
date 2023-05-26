@@ -1,15 +1,14 @@
-import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import AboutSection from '@/components/company/AboutSection';
+import DetailSection from '@/components/company/DetailSection';
 import HeroCompany from '@/components/company/Hero';
 
 const Company = () => {
   return (
     <Layout>
-      <Container>
-        <HeroCompany />
-        <AboutSection />
-      </Container>
+      <HeroCompany />
+      <AboutSection />
+      <DetailSection />
     </Layout>
   );
 };
