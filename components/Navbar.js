@@ -13,25 +13,9 @@ import { ProductContext } from '@/context/GlobalState';
 export default function Navbar() {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [onScroll, setOnScroll] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
 
   const { cart } = ProductContext();
-
-  useEffect(() => {
-    const navbarBackground = () => {
-      if (window.scrollY > 22) {
-        setOnScroll(true);
-      } else {
-        setOnScroll(false);
-      }
-    };
-    window.addEventListener('scroll', navbarBackground);
-
-    return () => {
-      window.removeEventListener('scroll', navbarBackground);
-    };
-  }, []);
 
   const calculateTotalItems = (cart) => {
     return cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -45,10 +29,7 @@ export default function Navbar() {
   return (
     <header className="w-full h-auto">
       <Banner />
-      <nav
-        className={`w-full lg:static top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all ${
-          onScroll && 'lg:fixed top-0'
-        }`}>
+      <nav className="w-full lg:top-8 top-0 shadow z-40 fixed bg-white py-3 lg:px-10 md:px-7 px-2 flex justify-between transition-all">
         <div className="">
           <Link href={'/'}>
             <Image src="/logo/logo.svg" width={40} height={40} alt="Logo" priority />
@@ -73,11 +54,13 @@ export default function Navbar() {
           </ButtonSquare>
         </div>
       </nav>
+
       <MenuList
         className={`fixed z-30 py-10 top-0 lg:hidden bg-white flex flex-col space-y-10 w-full px-5 shadow-md transition-transform duration-300 ease-linear ${
           showMenu ? 'top-16' : '-translate-y-full'
         }`}
       />
+
       <Cart setShowCart={setShowCart} showCart={showCart} />
     </header>
   );

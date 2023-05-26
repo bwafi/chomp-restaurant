@@ -32,9 +32,11 @@ export default function MenuList({ className }) {
       {navList.map(({ text, path }) => {
         const isActive = pathname === path;
         return (
-          <li key={text} className={`${isActive ? 'text-primary' : 'text-[#28224b]'} font-medium`}>
-            <Link href={path}>{text}</Link>
-          </li>
+          <Link key={text} href={path} className="group">
+            <span className={`${isActive ? 'text-primary' : 'text-[#28224b]'} group-hover:opacity-75 font-medium`}>
+              {text}
+            </span>
+          </Link>
         );
       })}
     </ul>

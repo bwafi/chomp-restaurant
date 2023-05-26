@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
-import aboutImg from '../../public/img/about-img.png';
 import Button from '../ui/Button';
 
 export default function AboutSection() {
   return (
-    <section className="flex bg-bg-content lg:flex-row flex-col w-full items-center gap-12 lg:gap-32 lg:my-32 my-16">
-      <div className="lg:w-5/12 md:w-8/12 w-full lg:block flex flex-col justify-center items-center">
+    <section className="flex bg-bg-content lg:flex-row flex-col w-full items-center gap-12 lg:gap-48 lg:mt-48 my-16">
+      <div className="lg:w-6/12 md:w-8/12 w-full lg:block flex flex-col justify-center items-center">
         <h1 className="lg:w-10/12 w-full lg:text-left text-center my-5 leading-none font-bold text-primary text-5xl md:text-[55px]">
           The home of fresh products
         </h1>
@@ -17,7 +16,7 @@ export default function AboutSection() {
         <Button className="my-10 bg-button-wave bg-primary text-white">Learn about us</Button>
       </div>
       <div>
-        <Image src={aboutImg} quality={60} alt="about" />
+        <Image src="/img/about-img.png" alt="about" width={450} height={450} />
       </div>
     </section>
   );

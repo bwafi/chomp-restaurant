@@ -20,7 +20,7 @@ const ContactSection = () => {
         </Link>
       </div>
       <div className="lg:w-5/12 w-full flex justify-center">
-        <Image src="/img/contact-img.png" quality={60} alt="food takeway" width={500} height={500} />
+        <Image src="/img/contact-img.png" alt="food takeway" width={450} height={450} />
       </div>
     </section>
   );
