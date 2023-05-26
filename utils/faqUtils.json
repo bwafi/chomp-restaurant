@@ -1,0 +1,95 @@
+{
+  "food": [
+    {
+      "id": 1,
+      "question": "What sets your hamburger restaurant apart from others?",
+      "answer": "We take pride in using fresh, high-quality meat that we carefully select, delicious homemade burger buns, and other quality ingredients. We also offer a variety of unique toppings and sauces that you won't find elsewhere."
+    },
+    {
+      "id": 2,
+      "question": "Do you have vegetarian or vegan options on your menu?",
+      "answer": "Yes, we understand the needs and preferences of our vegetarian and vegan customers. Therefore, we offer several delicious and flavorful meatless burger options. You can find these options in the \"Menu\" section."
+    },
+    {
+      "id": 3,
+      "question": "Do you use organic or local ingredients?",
+      "answer": "We strive to use local ingredients as much as possible, and we also select high-quality ingredients. While not all of our ingredients are organic, we always aim to maintain their quality and freshness"
+    },
+    {
+      "id": 4,
+      "question": "Can I make modifications to the toppings or ingredients in my burger?",
+      "answer": "Absolutely! We understand that everyone has different preferences. You can customize your burger by adding or removing toppings and adjusting the ingredients according to your liking. Just let our staff know your preferences when placing your order."
+    },
+    {
+      "id": 5,
+      "question": "Are your burgers made to order?",
+      "answer": "Yes, our burgers are made to order to ensure their freshness and quality. We prepare each burger with care and attention, so you can enjoy a delicious, customized meal every time you visit."
+    },
+    {
+      "id": 6,
+      "question": "What are your opening hours?",
+      "answer": "Our restaurant opens from 08:00 WIB to 22:00 WIB. You can check our website or contact us directly for any changes in our operating hours during holidays or special occasions."
+    }
+  ],
+
+  "delivery": [
+    {
+      "id": 7,
+      "question": "Do you offer food delivery service?",
+      "answer": "Yes, we offer food delivery service. You can place your order through a third-party delivery app that we partner with or through our own website."
+    },
+    {
+      "id": 8,
+      "question": "What is the delivery radius or area covered by your restaurant?",
+      "answer": "Our delivery radius typically extends 5-10 KM. However, please note that the delivery area may vary based on the availability of our delivery partners and traffic conditions."
+    },
+    {
+      "id": 9,
+      "question": "What are the delivery hours?",
+      "answer": "Our delivery hours are from 09:00 WIB to 22:00 WIB. Please note that delivery hours may be subject to change based on operational circumstances."
+    },
+    {
+      "id": 10,
+      "question": "How long does it take for the food to be delivered?",
+      "answer": "Delivery times can vary depending on factors such as order volume and traffic conditions. We strive to deliver your food as quickly as possible, usually within 5-20 min. However, please note that during peak hours, delivery times may be slightly longer."
+    },
+    {
+      "id": 11,
+      "question": "Is there a delivery fee?",
+      "answer": "Yes, there is a delivery fee associated with our delivery service. The fee covers the cost of packaging, transportation, and ensuring your food arrives safely. The exact delivery fee may vary based on your location and the distance from our restaurant. You can find the delivery fee details on our website or delivery app."
+    }
+  ],
+
+  "company": [
+    {
+      "id": 12,
+      "question": "What does your company do?",
+      "answer": "Our company Humburger Restaurant"
+    },
+    {
+      "id": 13,
+      "question": "How can I contact your company?",
+      "answer": "You can contact us by \"contact section\". Additionally, you can reach out to us through the contact form on our website."
+    },
+    {
+      "id": 14,
+      "question": "What are your company's operating hours?",
+      "answer": "Our company operates from 08:00 WIB to 22:00 WIB. Please note that operating hours may vary on holidays and special occasions."
+    },
+    {
+      "id": 15,
+      "question": "Do you have any job openings? How can I apply?",
+      "answer": "You can find information about the available positions and application process there. Alternatively, you can submit your resume and cover letter to [provide an email address] for consideration."
+    },
+    {
+      "id": 16,
+      "question": "Can I collaborate with your company?",
+      "answer": "We welcome collaboration opportunities. Please reach out to us with details about your proposal or project, and our team will review it to determine if it aligns with our company's goals and objectives."
+    },
+    {
+      "id": 17,
+      "question": "Can I request a product demo or a consultation?",
+      "answer": "Certainly! We offer product demos and consultations to interested parties. Please contact our sales team to schedule a demo or consultation based on your specific needs."
+    }
+  ]
+}

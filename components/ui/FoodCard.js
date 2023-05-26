@@ -7,15 +7,7 @@ import { formatRp } from '@/context/formatRp';
 export default function FoodCard({ type }) {
   const { products, addToCart } = ProductContext();
 
-  let foods = [];
-
-  if (type === 'burger') {
-    foods = products.burgers;
-  } else if (type === 'sides') {
-    foods = products.sides;
-  } else if (type === 'drinks') {
-    foods = products.drinks;
-  }
+  let foods = products[type];
 
   return (
     <>
