@@ -7,22 +7,19 @@ import HeroSection from '@/components/home/HeroSection';
 import OrderSection from '@/components/home/OrderSection';
 import StepSection from '@/components/home/StepSection';
 import Layout from '@/components/Layout';
-import { GlobalProvider } from '@/context/GlobalState';
 
 export default function Home() {
   return (
-    <GlobalProvider>
-      <Layout>
-        <Container>
-          <HeroSection />
-          <AboutSection />
-          <StepSection />
-          <BrowseMenuSection />
-          <FaqSection />
-          <ContactSection />
-          <OrderSection />
-        </Container>
-      </Layout>
-    </GlobalProvider>
+    <Layout>
+      <Container>
+        <HeroSection />
+        <AboutSection />
+        <StepSection />
+        <BrowseMenuSection />
+        <FaqSection />
+        <ContactSection />
+        <OrderSection />
+      </Container>
+    </Layout>
   );
 }

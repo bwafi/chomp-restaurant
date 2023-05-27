@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import faqUtils from '../../utils/faqUtils.json';
 import { IoClose } from 'react-icons/io5';
 import ButtonMenu from '../ui/ButtonMenu';
+import { motion } from 'framer-motion';
 
 const FaqPage = () => {
   const [faqFood, setFaqFood] = useState(true);
@@ -54,25 +55,24 @@ const FaqPage = () => {
 };
 
 const FAQ = ({ type }) => {
-  const [expandedIds, setExpandedIds] = useState([]);
+  const [expandedId, setExpandedId] = useState(null);
   const faqs = faqUtils[type];
 
   const handleFaqClick = (id) => {
-    if (expandedIds.includes(id)) {
-      // Jika pertanyaan sudah terbuka, tutup pertanyaan tersebut
-      setExpandedIds(expandedIds.filter((itemId) => itemId !== id));
-    } else {
-      // Jika pertanyaan belum terbuka, tambahkan ID pertanyaan ke array expandedIds
-      setExpandedIds([...expandedIds, id]);
-    }
+    setExpandedId(id === expandedId ? null : id);
   };
 
   return (
     <div className="w-full mx-auto">
       {faqs.map((faq) => {
-        const isExpanded = expandedIds.includes(faq.id);
+        const isExpanded = faq.id === expandedId;
         return (
-          <div className="w-10/12 mx-auto bg-white cursor-pointer" onClick={() => handleFaqClick(faq.id)}>
+          <motion.div
+            initial={{ opcity: 0, x: 20 }}
+            animate={{ opcity: 1, x: 0 }}
+            key={faq.id}
+            className="w-10/12 mx-auto bg-white cursor-pointer"
+            onClick={() => handleFaqClick(faq.id)}>
             <div className="flex justify-between items-center border-b">
               <h1 className="text-primary font-semibold text-xl py-7">{faq.question}</h1>
               <IoClose
@@ -87,7 +87,7 @@ const FAQ = ({ type }) => {
               }`}>
               <p className="text-lg text-paragraf py-5 ">{faq.answer}</p>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>

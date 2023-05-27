@@ -1,14 +1,14 @@
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import HeroOrder from '@/components/order/Hero';
-import Products from '@/components/order/Products';
+import ProductsOrder from '@/components/order/ProductsOrder';
 
 const Order = () => {
   return (
     <Layout>
       <Container>
         <HeroOrder />
-        <Products />
+        <ProductsOrder />
       </Container>
     </Layout>
   );

@@ -7,6 +7,7 @@ import { ProductContext } from '@/context/GlobalState';
 import { formatRp } from '@/context/formatRp';
 import CountCard from './ui/CountCard';
 import Button from './ui/Button';
+import Link from 'next/link';
 
 export default function Cart({ className, showCart, setShowCart }) {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = ProductContext();
@@ -51,7 +52,11 @@ export default function Cart({ className, showCart, setShowCart }) {
               {cart.length === 0 ? (
                 <div className="flex justify-center items-center flex-col h-5/6 gap-5">
                   <p>We couldn't find any items in your cart.</p>
-                  <Button className="bg-primary relative bg-button-wave text-white drawn-arrow">Start an Order</Button>
+                  <Link href="/order">
+                    <Button className="bg-primary relative bg-button-wave text-white drawn-arrow">
+                      Start an Order
+                    </Button>
+                  </Link>
                 </div>
               ) : (
                 <div className="overflow-y-auto max-h-[calc(100vh-200px)]">

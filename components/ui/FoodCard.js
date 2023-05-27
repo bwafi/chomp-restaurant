@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ProductContext } from '@/context/GlobalState';
 import { formatRp } from '@/context/formatRp';
 
@@ -10,11 +9,11 @@ export default function FoodCard({ type }) {
   let foods = products[type];
 
   return (
-    <>
+    <AnimatePresence>
       {foods.map((item) => {
         return (
           <motion.div
-            initial={{ opacity: 0, x: 10 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
             key={item.id}
@@ -37,7 +36,7 @@ export default function FoodCard({ type }) {
               <p className="text-paragraf leading-normal line-clamp-3">{item.description}</p>
               <div className="flex mt-2 w-full justify-end">
                 <button
-                  className="py-2 rounded text-sm text-white px-4 bg-primary shadow-sm hover:contrast-125 transition-all duration-300"
+                  className="py-2 rounded text-base md:text-sm text-white px-4 bg-primary shadow-sm hover:contrast-125 transition-all duration-300"
                   onClick={() => addToCart(item.id)}>
                   Add to Cart
                 </button>
@@ -46,6 +45,6 @@ export default function FoodCard({ type }) {
           </motion.div>
         );
       })}
-    </>
+    </AnimatePresence>
   );
 }
