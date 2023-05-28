@@ -71,12 +71,12 @@ const FAQ = ({ type }) => {
             initial={{ opcity: 0, x: 20 }}
             animate={{ opcity: 1, x: 0 }}
             key={faq.id}
-            className="w-10/12 mx-auto bg-white cursor-pointer"
+            className="md:w-10/12 w-full mx-auto bg-white cursor-pointer"
             onClick={() => handleFaqClick(faq.id)}>
             <div className="flex justify-between items-center border-b">
-              <h1 className="text-primary font-semibold text-xl py-7">{faq.question}</h1>
+              <h1 className="text-primary font-semibold text-lg py-7">{faq.question}</h1>
               <IoClose
-                className={`text-2xl text-paragraf transition-transform duration-300 ease-in ${
+                className={`md:text-2xl text-lg shrink-0 text-paragraf transition-transform duration-300 ease-in ${
                   isExpanded ? '' : 'rotate-45'
                 }`}
               />

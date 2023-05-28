@@ -87,7 +87,15 @@ const CardCart = ({ item, removeFromCart }) => {
     <div
       key={item.id}
       className="flex w-full py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
-      <Image src={item.image} alt={item.name} width={70} height={70} loading="lazy" className="shadow rounded" />
+      <Image
+        src={item.image}
+        alt={item.name}
+        quality={60}
+        width={70}
+        height={70}
+        loading="lazy"
+        className="shadow rounded"
+      />
       <div className=" w-full">
         <div className="flex w-full justify-between items-center">
           <div>

@@ -23,7 +23,7 @@ export default function MenuList({ className }) {
     },
     {
       text: 'Contact',
-      path: '/contact',
+      path: 'mailto: syahronibwf@gmail.com?subject = Feedback&body = Message',
     },
   ];
 
