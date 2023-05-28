@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 items-center justify-between">
+    <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 items-center justify-between gap-10">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}

@@ -44,7 +44,7 @@ const ListProducts = () => {
       </div>
       <div className="py-10 flex md:gap-7 sm:gap-3 gap-7 items-center justify-center flex-wrap">
         {foods.map((item) => {
-          return <FoodCard item={item} addToCart={addToCart} />;
+          return <FoodCard key={item.id} item={item} addToCart={addToCart} />;
         })}
       </div>
     </section>
