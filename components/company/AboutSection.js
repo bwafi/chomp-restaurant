@@ -1,4 +1,4 @@
-import AboutPage from '../AboutPage';
+import AboutPage from '../SectionPage';
 import Container from '../Container';
 
 const AboutSection = () => {

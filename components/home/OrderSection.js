@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const OrderSection = () => {
@@ -19,7 +20,9 @@ const OrderSection = () => {
           <span className="text-[#1b9097]">Support</span> good food and local business.
         </h1>
         <div className="w-full md:w-6/12">
-          <button className="mt-10 bg-white text-primary py-5 px-16 rounded">Order Now</button>
+          <Link href="/order">
+            <button className="mt-10 bg-white text-primary py-5 px-16 rounded">Order Now</button>
+          </Link>
         </div>
       </div>
     </section>

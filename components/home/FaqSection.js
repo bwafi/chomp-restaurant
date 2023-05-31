@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Button from '../ui/Button';
+import Link from 'next/link';
 
 const FaqSection = () => {
   return (
@@ -23,7 +24,9 @@ const FaqSection = () => {
           Here, you can find the answers you need. We've collected frequently asked questions to make it easier for you
           to find the information you need.
         </p>
-        <Button className="bg-button-wave mt-10 bg-primary text-white">See our FAQ</Button>
+        <Link href="/faq">
+          <Button className="bg-button-wave mt-10 bg-primary text-white">See our FAQ</Button>
+        </Link>
       </div>
     </section>
   );

@@ -90,7 +90,7 @@ const CardCart = ({ item, removeFromCart }) => {
       <Image
         src={item.image}
         alt={item.name}
-        quality={60}
+        quality={50}
         width={70}
         height={70}
         loading="lazy"

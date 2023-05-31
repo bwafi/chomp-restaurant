@@ -1,6 +1,7 @@
 'use client';
 import Button from '../ui/Button';
 import ListProducts from '../ListProducts';
+import Link from 'next/link';
 
 export default function BrowseMenuSection() {
   return (
@@ -17,7 +18,9 @@ export default function BrowseMenuSection() {
       </div>
       <ListProducts />
       <div className="w-full flex justify-center lg:pt-14 pt-10">
-        <Button className="bg-primary bg-button-wave text-white">See Full Menu</Button>
+        <Link href="/order#products">
+          <Button className="bg-primary bg-button-wave text-white">See Full Menu</Button>
+        </Link>
       </div>
     </section>
   );
