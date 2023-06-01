@@ -84,13 +84,11 @@ export default function Cart({ className, showCart, setShowCart }) {
 
 const CardCart = ({ item, removeFromCart }) => {
   return (
-    <div
-      key={item.id}
-      className="flex w-full py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
+    <div className="flex w-full py-3 md:px-3 mx-auto items-center space-x-3 rounded group hover:bg-gray-200 transition-colors">
       <Image
         src={item.image}
         alt={item.name}
-        quality={50}
+        quality={30}
         width={70}
         height={70}
         loading="lazy"

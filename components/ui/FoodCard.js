@@ -6,10 +6,9 @@ export default function FoodCard({ item, addToCart }) {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ x: 10, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        key={item.id}
         className="flex flex-col md:flex-row items-center justify-center bg-white rounded-md lg:w-[45%] md:w-10/12 sm:w-[48%] w-full p-5 md:space-x-5 space-y-10 md:space-y-0 border border-[#35b8be]/20 hover:border-[#35b8be] shadow-sm">
         <div className="shrink-0">
           <Image
