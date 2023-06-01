@@ -19,6 +19,7 @@ module.exports = {
         'pattern-01': 'url("../public/icon/pattern-01.svg")',
         'pattern-footer': 'url("../public/icon/pattern-footer.svg")',
         'group-photo': 'url("../public/img/group-photo.jpg")',
+        yumyum: 'url("../public/icon/yumyum.png")',
       },
       screens: {
         sm: '576px',

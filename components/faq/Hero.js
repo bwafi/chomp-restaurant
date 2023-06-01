@@ -1,10 +1,12 @@
 import React from 'react';
-import HeroPage from '../HeroPage';
+import HeroPage, { HeroTitle } from '../HeroPage';
 
 const HeroFaq = () => {
   return (
     <HeroPage>
-      Frequently Asked <span className="text-primary">Questions</span>
+      <HeroTitle>
+        Frequently Asked <span className="text-primary">Questions</span>
+      </HeroTitle>
     </HeroPage>
   );
 };
