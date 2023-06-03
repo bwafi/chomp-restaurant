@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section className="bg-white flex flex-col lg:flex-row w-full mt-32 mb-32 md:mb-32 items-center justify-between gap-10">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="flex flex-col lg:items-start items-center lg:w-6/12 md:w-10/12 w-full lg:space-y-5 space-y-7">
