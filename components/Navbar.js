@@ -62,6 +62,7 @@ export default function Navbar() {
           </ButtonSquare>
         </div>
       </nav>
+
       <MenuList
         className={`fixed z-30 py-10 top-0 lg:hidden bg-white flex flex-col space-y-10 w-full px-5 shadow-md transition-transform duration-200 ease-linear ${
           showMenu ? "top-16" : "-translate-y-full"
